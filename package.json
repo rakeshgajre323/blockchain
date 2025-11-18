@@ -11,13 +11,13 @@
     "backend": "nodemon backend/server.js"
   },
   "dependencies": {
-    "@dhiwise/component-tagger": "^1.0.10",
+    "@dhiwise/component-tagger": "^1.0.3",
     "@radix-ui/react-slot": "^1.2.4",
     "@vitejs/plugin-react": "^4.7.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cors": "^2.8.5",
-    "express": "^4.21.1",
+    "express": "^4.21.2",
     "lucide-react": "^0.553.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
