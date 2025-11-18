@@ -1,13 +1,12 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 
-// Import your pages here
+// Import your pages
 import LandingPage from "./pages/landing-page";
 import VerifierPortal from "./pages/verifier-portal";
 import IssuerAuthentication from "./pages/issuer-authentication";
 import LearnerWallet from "./pages/learner-wallet";
 import VerificationResults from "./pages/verification-results";
-import NotFound from "./pages/NotFound";
 
 function AppRoutes() {
   return (
@@ -18,7 +17,9 @@ function AppRoutes() {
         <Route path="/issuer" element={<IssuerAuthentication />} />
         <Route path="/wallet" element={<LearnerWallet />} />
         <Route path="/results" element={<VerificationResults />} />
-        <Route path="*" element={<NotFound />} />
+
+        {/* Redirect all unknown URLs to home */}
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Router>
   );
