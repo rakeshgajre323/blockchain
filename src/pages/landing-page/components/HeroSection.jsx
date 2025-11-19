@@ -10,16 +10,20 @@ const HeroSection = () => {
         Blockchain-Based Skill Credentialing System
       </h1>
       <p className="text-lg text-gray-600 max-w-2xl mb-6">
-        Securely issue, verify, and share skill credentials using blockchain technology. 
+        Securely issue, verify, and share skill credentials using blockchain technology.
         Build trust between learners, issuers, and employers.
       </p>
+
       <div className="flex gap-4">
+        {/* 🔁 Redirect to login-selection page */}
         <button
-          onClick={() => navigate("/issuer-authentication")}
+          onClick={() => navigate("/login")}
           className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
         >
           Get Started
         </button>
+
+        {/* 🪪 View credentials → same as before */}
         <button
           onClick={() => navigate("/learner-wallet")}
           className="px-6 py-3 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition"

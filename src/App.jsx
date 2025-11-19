@@ -1,25 +1,37 @@
 // src/App.jsx
+
 import React, { useEffect, useState } from "react";
 import AppRoutes from "./Routes";
-import { getHealth } from "./api";   // 👈 Make sure api.js exists
+import { getHealth } from "./api"; // Checks backend status
 
 function App() {
   const [backendStatus, setBackendStatus] = useState("Checking backend...");
 
   useEffect(() => {
-    getHealth()
-      .then((data) => setBackendStatus(data.message))
-      .catch(() => setBackendStatus("Backend not working"));
+    const checkBackend = async () => {
+      try {
+        const data = await getHealth();
+        if (data?.message) {
+          setBackendStatus(`Backend is working 🚀`);
+        } else {
+          setBackendStatus("Backend responded but no message received");
+        }
+      } catch (error) {
+        setBackendStatus("Backend not working ❌");
+      }
+    };
+
+    checkBackend();
   }, []);
 
   return (
     <>
-      {/* Show API status at top */}
-      <div style={{ background: "#e3e3e3", padding: "8px" }}>
-        <p>Backend status: {backendStatus}</p>
+      {/* 🔹 Status Banner */}
+      <div style={{ background: "#f0f0f0", padding: "8px", textAlign: "center" }}>
+        <strong>Backend status:</strong> {backendStatus}
       </div>
 
-      {/* Keep your routes working */}
+      {/* 🔹 Main App Routes */}
       <AppRoutes />
     </>
   );
