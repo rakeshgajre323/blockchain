@@ -13,11 +13,14 @@ import LoginSelection from "./pages/login-selection";
 import LoginStudent from "./pages/login-student";
 import LoginInstitute from "./pages/login-institute";
 import LoginCompany from "./pages/login-company";
+import Register from "./pages/Register";
 
 function AppRoutes() {
   return (
     <Router>
       <Routes>
+
+        {/* Home */}
         <Route path="/" element={<LandingPage />} />
 
         {/* Login Pages */}
@@ -26,13 +29,16 @@ function AppRoutes() {
         <Route path="/login/institute" element={<LoginInstitute />} />
         <Route path="/login/company" element={<LoginCompany />} />
 
-        {/* Other Existing Routes */}
+        {/* Register route */}
+        <Route path="/register/:role" element={<Register />} />
+
+        {/* Other Routes */}
         <Route path="/verifier" element={<VerifierPortal />} />
         <Route path="/issuer" element={<IssuerAuthentication />} />
         <Route path="/wallet" element={<LearnerWallet />} />
         <Route path="/results" element={<VerificationResults />} />
 
-        {/* Redirect all unknown URLs to home */}
+        {/* Fallback – redirect unknown URLs */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Router>
@@ -40,3 +46,4 @@ function AppRoutes() {
 }
 
 export default AppRoutes;
+<Route path="/register/:role" element={<Register />} />
